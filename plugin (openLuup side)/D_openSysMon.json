@@ -1,0 +1,404 @@
+{
+    "flashicon": "icons/SysMon.png",
+    "imgIconBody": "",
+    "imgIconDimmable": "",
+    "imgIconTurnable": "",
+    "imgIconMin": "",
+    "imgIconMax": "",
+    "halloIconsDir": "pics/hallo",
+    "inScene": "0",
+    "DisplayStatus": {},
+    "doc_url": {
+        "doc_language": 1,
+        "doc_manual": 1,
+        "doc_version": 1,
+        "doc_platform": 0,
+        "doc_page": "devices"
+    },
+    "Tabs": [
+        {
+            "Label": {
+                "lang_tag": "SysMon",
+                "text": "SysMon"
+            },
+            "Position": "0",
+            "TabType": "flash",
+            "SceneGroup": [
+                {
+                    "id": "1",
+                    "top": "1",
+                    "left": "0",
+                    "x": "2",
+                    "y": "2"
+                }
+            ],
+            "ControlGroup": [
+                {
+                    "id": "1",
+                    "scenegroup": "1"
+                }
+            ],
+            "Control": [
+                {
+                    "ControlGroup": "1",
+                    "ControlType": "label",
+                    "Label": {
+                        "lang_tag": "memAvail",
+                        "text": "Mem Available"
+                    },
+                    "top": "0",
+                    "Display": {
+                        "Top": 20,
+                        "Left": 50,
+                        "Width": 120,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "1",
+                    "ControlType": "variable",
+                    "top": "0",
+                    "left": "1",
+                    "Display": {
+                        "Service": "urn:cd-jackson-com:serviceId:SystemMonitor",
+                        "Variable": "memoryAvailable",
+                        "Top": 20,
+                        "Left": 200,
+                        "Width": 75,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "3",
+                    "ControlType": "label",
+                    "Label": {
+                        "lang_tag": "kb",
+                        "text": "kilo bytes"
+                    },
+                    "top": "0",
+                    "Display": {
+                        "Top": 20,
+                        "Left": 275,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "2",
+                    "ControlType": "label",
+                    "Label": {
+                        "lang_tag": "cpuLoad1",
+                        "text": "CPU Load (1 minute)"
+                    },
+                    "top": "1",
+                    "Display": {
+                        "Top": 50,
+                        "Left": 50,
+                        "Width": 120,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "2",
+                    "ControlType": "variable",
+                    "top": "1",
+                    "left": "1",
+                    "Display": {
+                        "Service": "urn:cd-jackson-com:serviceId:SystemMonitor",
+                        "Variable": "cpuLoad1",
+                        "Top": 50,
+                        "Left": 200,
+                        "Width": 75,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "1",
+                    "ControlType": "label",
+                    "Label": {
+                        "lang_tag": "cpuLoad5",
+                        "text": "CPU Load (5 minute)"
+                    },
+                    "top": "1",
+                    "Display": {
+                        "Top": 70,
+                        "Left": 50,
+                        "Width": 120,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "1",
+                    "ControlType": "variable",
+                    "top": "1",
+                    "left": "1",
+                    "Display": {
+                        "Service": "urn:cd-jackson-com:serviceId:SystemMonitor",
+                        "Variable": "cpuLoad5",
+                        "Top": 70,
+                        "Left": 200,
+                        "Width": 75,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "2",
+                    "ControlType": "label",
+                    "Label": {
+                        "lang_tag": "cpuLoad15",
+                        "text": "CPU Load (15 minute)"
+                    },
+                    "top": "1",
+                    "Display": {
+                        "Top": 90,
+                        "Left": 50,
+                        "Width": 120,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "2",
+                    "ControlType": "variable",
+                    "top": "1",
+                    "left": "1",
+                    "Display": {
+                        "Service": "urn:cd-jackson-com:serviceId:SystemMonitor",
+                        "Variable": "cpuLoad15",
+                        "Top": 90,
+                        "Left": 200,
+                        "Width": 75,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "3",
+                    "ControlType": "label",
+                    "Label": {
+                        "lang_tag": "cmhreboot",
+                        "text": "Last CMH Reboot"
+                    },
+                    "top": "1",
+                    "Display": {
+                        "Top": 120,
+                        "Left": 50,
+                        "Width": 120,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "3",
+                    "ControlType": "variable",
+                    "top": "1",
+                    "left": "1",
+                    "Display": {
+                        "Service": "urn:cd-jackson-com:serviceId:SystemMonitor",
+                        "Variable": "cmhLastRebootTime",
+                        "Top": 120,
+                        "Left": 200,
+                        "Width": 75,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "3",
+                    "ControlType": "label",
+                    "Label": {
+                        "lang_tag": "verareboot",
+                        "text": "Last Vera Restart"
+                    },
+                    "top": "1",
+                    "Display": {
+                        "Top": 140,
+                        "Left": 50,
+                        "Width": 120,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "3",
+                    "ControlType": "variable",
+                    "top": "1",
+                    "left": "1",
+                    "Display": {
+                        "Service": "urn:cd-jackson-com:serviceId:SystemMonitor",
+                        "Variable": "systemVeraRestartTime",
+                        "Top": 140,
+                        "Left": 200,
+                        "Width": 75,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "3",
+                    "ControlType": "label",
+                    "Label": {
+                        "lang_tag": "luupreboot",
+                        "text": "Last Luup Restart"
+                    },
+                    "top": "1",
+                    "Display": {
+                        "Top": 160,
+                        "Left": 50,
+                        "Width": 120,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlGroup": "3",
+                    "ControlType": "variable",
+                    "top": "1",
+                    "left": "1",
+                    "Display": {
+                        "Service": "urn:cd-jackson-com:serviceId:SystemMonitor",
+                        "Variable": "systemLuupRestartTime",
+                        "Top": 160,
+                        "Left": 200,
+                        "Width": 75,
+                        "Height": 20
+                    }
+                }
+
+            ]
+        },
+        {
+            "Label": {
+                "lang_tag": "advanced",
+                "text": "Advanced"
+            },
+            "Position": "2",
+            "TabType": "javascript",
+            "ScriptName": "shared.js",
+            "Function": "advanced_device"
+        },
+        {
+            "Label": {
+                "lang_tag": "logs",
+                "text": "Logs"
+            },
+            "Position": "3",
+            "TabType": "javascript",
+            "ScriptName": "shared.js",
+            "Function": "device_logs"
+        },
+        {
+            "Label": {
+                "lang_tag": "notifications",
+                "text": "Notifications"
+            },
+            "Position": "4",
+            "TabType": "javascript",
+            "ScriptName": "shared.js",
+            "Function": "device_notifications"
+        }
+    ],
+    "eventList2": [
+        {
+            "id": 1,
+            "label": {
+                "lang_tag": "available_memory_goes_below",
+                "text": "Available memory drops below limit"
+            },
+            "serviceId": "urn:cd-jackson-com:serviceId:SystemMonitor",
+            "norepeat": "1",
+            "argumentList": [
+                {
+                    "id": 1,
+                    "dataType": "i4",
+                    "name": "memoryAvailable",
+                    "comparisson": "<",
+                    "prefix": {
+                        "lang_tag": "memory",
+                        "text": "Memory"
+                    },
+                    "suffix": {
+                        "lang_tag": "kb",
+                        "text": "kb"
+                    },
+                    "HumanFriendlyText": {
+                        "lang_tag": "hft_available_memory_goes_below",
+                        "text": "Available memory has dropped below _ARGUMENT_VALUE_ kb"
+                    }
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "label": {
+                "lang_tag": "vera_restart",
+                "text": "Vera restart"
+            },
+            "serviceId": "urn:cd-jackson-com:serviceId:SystemMonitor",
+            "norepeat": "1",
+            "argumentList": [
+                {
+                    "id": 1,
+                    "dataType": "i4",
+                    "name": "systemVeraRestart",
+                    "defaultValue": "1",
+                    "comparisson": "=",
+                    "allowedValueList": [
+                        {
+                            "value": 1,
+                            "HumanFriendlyText": {
+                                "lang_tag": "hft_vera_restarted",
+                                "text": "Vera has restarted"
+                            }
+                        }
+                    ],
+                    "HumanFriendlyText": {
+                        "lang_tag": "hft_vera_restarted",
+                        "text": "Vera has restarted"
+                    },
+                    "prefix": {
+                        "lang_tag": "",
+                        "text": ""
+                    },
+                    "suffix": {
+                        "lang_tag": "",
+                        "text": ""
+                    }
+                }
+            ]
+        },
+		{
+            "id": 3,
+            "label": {
+                "lang_tag": "luup_restart",
+                "text": "Luup restart"
+            },
+            "serviceId": "urn:cd-jackson-com:serviceId:SystemMonitor",
+            "norepeat": "1",
+            "argumentList": [
+                {
+                    "id": 1,
+                    "dataType": "i4",
+                    "name": "systemLuupRestart",
+                    "defaultValue": "1",
+                    "comparisson": "=",
+                    "allowedValueList": [
+                        {
+                            "value": 1,
+                            "HumanFriendlyText": {
+                                "lang_tag": "hft_luup_restarted",
+                                "text": "Luup has restarted"
+                            }
+                        }
+                    ],
+                    "HumanFriendlyText": {
+                        "lang_tag": "hft_luup_restarted",
+                        "text": "Luup has restarted"
+                    },
+                    "prefix": {
+                        "lang_tag": "",
+                        "text": ""
+                    },
+                    "suffix": {
+                        "lang_tag": "",
+                        "text": ""
+                    }
+                }
+            ]
+        }
+    ],
+    "DeviceType": "urn:schemas-cd-jackson-com:device:SystemMonitor:1"
+}
