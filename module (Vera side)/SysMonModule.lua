@@ -8,15 +8,16 @@ module("SysMonModule", package.seeall)
 	while the server side is a plugin running on the openLuup machine (on same LAN for now!!!)
 	server/client communication relies on a http GET from this module on the Vera to a handler on the openLuup machine
 
-	Version 0.3
+	Version 0.4
 	changelog:
-	- configuration function implementation
+	- correction of bug in config() function
+	- config(openLuupIP, SamplePeriod) MUST be called immediately after initialisation
 
 --]]
 
 -- User specific configuration parameters
 
-local openLuupIP = "192.168.1.52" -- The IP of the machine running the openSysMon plugin
+local openLuupIP = "0.0.0.0" -- The IP of the machine running the openSysMon plugin, will be set by config()
 local SamplePeriod = 300 -- 5 mins -- one single sample period in this version for simplicity
 
 -- general parameters
@@ -28,7 +29,7 @@ local err
 local lastUptime
 local lastUptime
 local uptimelogfilename = "/usr/uptime.log" -- this path/file needs to survive a reboot !!!
-local serverpath = "http://" .. openLuupIP .. ":3480/data_request?id=lr_SysMon"
+local serverpath = ""
 local SYSMON_LOG_NAME = "SysMonModule: "
 local configfilename = "/etc/cmh/cmh-ludl/openSysMon.conf"
 
@@ -37,8 +38,11 @@ local configfilename = "/etc/cmh/cmh-ludl/openSysMon.conf"
 -- local	SamplePeriodUptime = 300 -- 5 mins
 
 -- configure parameters for openLuupIP and/or SamplePeriod
-function SysMonConfig(targetIP, period)
-	if targetIP ~= nil then openLuupIP = targetIP end -- no check if this is valid IP !!!
+function config(targetIP, period)
+	if targetIP ~= nil then
+		openLuupIP = targetIP -- no check if this is valid IP !!!
+		serverpath = "http://" .. openLuupIP .. ":3480/data_request?id=lr_SysMon"
+	end
 	if period ~= nil then
 		SamplePeriod = tonumber(period)
 		if(SamplePeriod == nil) then SamplePeriod = 300 end
@@ -181,7 +185,8 @@ function Poll_Data()
 	end
 	luup.log(SYSMON_LOG_NAME .. "calling " .. url) -- for debug
 	local returndata, retcode = http.request(url)
-	luup.log(SYSMON_LOG_NAME .. returndata) -- for debug
+	if returndata == nil then returndata = "" end -- avoid a crash in logging returndata if error in request
+	luup.log(SYSMON_LOG_NAME .. retcode .. " " .. returndata) -- for debug
 	local err = (retcode ~=200)
 	if err then -- something wrong happpened (website down, wrong key or location)
 		luup.log(SYSMON_LOG_NAME .. "bad response from openLuup") -- for debug
@@ -211,7 +216,7 @@ function init()
 	-- since luup.call_delay otherwise fails in a module (see http://forum.micasaverde.com/index.php?topic=10258.0)
 	_G["Poll_Data"] = Poll_Data
 	luup.call_delay("Poll_Data", 20) 	-- delay first poll by 20 seconds to allow for Vera to stabilize after startup
-										-- as well as allow a call to the SysMonConfig function from the Luup startup code
+										-- as well as allow a call to the config() function from the Luup startup code
 	luup.log(SYSMON_LOG_NAME .. "Startup complete")
 end
 
